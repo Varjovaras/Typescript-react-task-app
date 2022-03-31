@@ -1,37 +1,27 @@
+import ShowTodos from './components/ShowTodos';
+import InputForm from './components/InputForm';
 import React, { useState } from 'react';
 import './App.css';
+import { Todo } from './models/Todo';
 
 const App = () => {
   const [todo, setTodo] = useState<string>('');
-  const [todos, setTodos] = useState<string[]>([]);
+  const [todos, setTodos] = useState<Todo[]>([]);
 
   const addTodo = (e: React.FormEvent) => {
     e.preventDefault();
     if (todo) {
-      setTodos([...todos, todo]);
+      setTodos([...todos, { id: Date.now() + 1, text: todo }]);
+      setTodo('');
     }
   };
   console.log(todo);
+  console.log(todos);
 
   return (
     <div className="App">
-      <form
-        onSubmit={(e) => {
-          addTodo(e);
-        }}
-      >
-        <input
-          type="input"
-          value={todo}
-          onChange={(e) => setTodo(e.target.value)}
-          placeholder="Enter todo"
-        />
-      </form>
-      <div className="display-todo">
-        {todos.map((todo) => (
-          <li>{todo}</li>
-        ))}
-      </div>
+      <InputForm addTodo={addTodo} todo={todo} setTodo={setTodo} />
+      <ShowTodos todos={todos} />
     </div>
   );
 };

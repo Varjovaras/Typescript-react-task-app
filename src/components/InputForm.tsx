@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles.css';
 
 interface Props {
   addTodo: (e: React.FormEvent) => void;
@@ -8,11 +9,13 @@ interface Props {
 const InputForm: React.FC<Props> = ({ addTodo, todo, setTodo }) => {
   return (
     <form
+      className="input-form"
       onSubmit={(e) => {
         addTodo(e);
       }}
     >
       <input
+        className="input"
         type="input"
         value={todo}
         onChange={(e) => setTodo(e.target.value)}

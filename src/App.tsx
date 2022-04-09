@@ -1,7 +1,8 @@
-import ShowTodos from './components/ShowTodos';
-import InputForm from './components/InputForm';
 import React, { useState } from 'react';
 import './App.css';
+import InputForm from './components/InputForm';
+import MyComponent from './components/MyComponent';
+import ShowTodos from './components/ShowTodos';
 import { Todo } from './models/Todo';
 
 const App = () => {
@@ -15,12 +16,12 @@ const App = () => {
       setTodo('');
     }
   };
-  console.log(todo);
-  console.log(todos);
 
   return (
     <div className="App">
       <InputForm addTodo={addTodo} todo={todo} setTodo={setTodo} />
+      <MyComponent />
+
       <ShowTodos todos={todos} />
     </div>
   );

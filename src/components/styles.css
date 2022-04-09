@@ -1,5 +1,16 @@
-.Input {
-    background-color: red;
-    border-radius: 150px;
+.input {
+    border-width: 1px;
+    height: 35px;
+    float: left
+}
+
+.input-form {
+    
+}
+
+.select-menu {
+    
+    width:200px;
+    height: 10px;
     
 }

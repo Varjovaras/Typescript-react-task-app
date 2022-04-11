@@ -1,7 +1,5 @@
 .input {
-    border-width: 1px;
-    height: 35px;
-    float: left
+
 }
 
 .input-form {
@@ -13,4 +11,40 @@
     width:200px;
     height: 10px;
     
+}
+
+.single_todo {
+    display: flex;
+    width: 29.5%;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 15px;
+    transition: 0.2s
+}
+
+.todos {  
+    display: flex;
+    justify-content: space-evenly;
+    width: 70%;
+    flex-wrap: wrap;
+}
+
+
+
+@media (max-width: 700px) {
+    .input {
+        width: 95%;
+    }
+    .todos {
+        width: 95%;
+    }
+    .single_todo {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .single_todo {
+        width: 40%;
+    }
 }

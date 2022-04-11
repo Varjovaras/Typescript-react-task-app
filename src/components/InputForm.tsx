@@ -7,8 +7,15 @@ interface Props {
   todo: string;
   setTodo: React.Dispatch<React.SetStateAction<string>>;
   setDay: React.Dispatch<React.SetStateAction<string>>;
+  day: string;
 }
-const InputForm: React.FC<Props> = ({ addTodo, todo, setTodo, setDay }) => {
+const InputForm: React.FC<Props> = ({
+  addTodo,
+  todo,
+  setTodo,
+  setDay,
+  day,
+}) => {
   return (
     <>
       <form
@@ -18,7 +25,7 @@ const InputForm: React.FC<Props> = ({ addTodo, todo, setTodo, setDay }) => {
           addTodo(e);
         }}
       >
-        <SelectMenu setDay={setDay} />
+        <SelectMenu day={day} setDay={setDay} />
         <input
           className="input"
           type="input"

@@ -1,20 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './styles.css';
 
 interface Props {
+  day: string;
   setDay: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const SelectMenu: React.FC<Props> = ({ setDay }) => {
+const SelectMenu: React.FC<Props> = ({ day, setDay }) => {
   const handleSelectChange = (e: any) => {
     setDay(e.target.value);
   };
 
-  const currentDay = new Date().getDay();
-
   return (
     <select
-      defaultValue={currentDay}
+      defaultValue={day}
       onChange={handleSelectChange}
       className="select-menu"
     >

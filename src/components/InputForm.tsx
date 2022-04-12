@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import SelectMenu from './SelectMenu';
 import './styles.css';
 
@@ -33,6 +33,10 @@ const InputForm: React.FC<Props> = ({
           onChange={(e) => setTodo(e.target.value)}
           placeholder="Enter todo"
         />
+
+        <button className="submit-button" type="submit">
+          go
+        </button>
       </form>
     </>
   );

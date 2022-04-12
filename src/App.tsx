@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
+import './App.scss';
 import InputForm from './components/InputForm';
 import Todos from './components/Todos';
 import { Todo } from './models/Todo';
@@ -25,7 +25,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <span className="heading">Todo List</span>
+      <span className="header">Todo List</span>
       <InputForm
         addTodo={addTodo}
         todo={todo}

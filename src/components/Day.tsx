@@ -1,6 +1,5 @@
 import React from 'react';
 import { Todo } from '../models/Todo';
-import { Days } from '../models/Days';
 import './styles.css';
 
 interface Props {

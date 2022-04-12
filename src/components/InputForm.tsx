@@ -35,7 +35,7 @@ const InputForm: React.FC<Props> = ({
         />
 
         <button className="submit-button" type="submit">
-          go
+          enter
         </button>
       </form>
     </>

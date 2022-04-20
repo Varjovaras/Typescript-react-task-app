@@ -20,6 +20,7 @@
     outline: none;
 }
 
+
 .submit-button {
     position: absolute;
     width: 50px;
@@ -48,20 +49,36 @@
   background: rgb(239, 103, 103)
 }
 
-.single_todo {
-    display: flex;
-    width: 29.5%;
-    border-radius: 5px;
-    padding: 20px;
-    margin-top: 15px;
-    transition: 0.2s
+.day-title {
+    width: 50%;
+    margin-top: 20px;
 }
 
-.todos {  
+.day-buttons {
     display: flex;
     justify-content: space-evenly;
     width: 70%;
-    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.day-button {
+    /* width: 50px; */
+    /* height: 50px; */
+    margin: 12px;
+    /* border-radius: 50px; */
+    /* right: 0px; */
+    border: none;
+    font-size: 20px;
+    background: #2f74c0;
+    color: white;
+    transition: 0.2s all;
+    box-shadow: 0 0 10px black;
+}
+
+
+.day-button:hover {
+    border: 1px solid white;
+
 }
 
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import SelectMenu from './SelectMenu';
-import './styles.css';
 
 interface Props {
   addTodo: (e: React.FormEvent) => void;

@@ -1,5 +1,4 @@
 import React from 'react';
-import './styles.css';
 
 interface Props {
   day: string;
@@ -8,6 +7,7 @@ interface Props {
 
 const SelectMenu: React.FC<Props> = ({ day, setDay }) => {
   const handleSelectChange = (e: any) => {
+    e.preventDefault();
     setDay(e.target.value);
   };
 
@@ -26,8 +26,6 @@ const SelectMenu: React.FC<Props> = ({ day, setDay }) => {
       <option value="7">Sunday</option>
     </select>
   );
-
-  //  <Select onChange={handleSelectChange} options={Days} />
 };
 
 export default SelectMenu;

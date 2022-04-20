@@ -1,22 +1,26 @@
-import React from 'react';
-import DayTodo from './Day';
+import React, { SetStateAction } from 'react';
+import Day from './Day';
 import { Todo } from '../models/Todo';
 import { Days } from '../models/Days';
 
 interface Props {
   todos: Todo[];
+  showDay: string;
 }
 
-const Todos: React.FC<Props> = ({ todos }) => {
+const Todos: React.FC<Props> = ({ todos, showDay }) => {
   return (
-    <div className="todos">
-      <DayTodo day={Days[1]} todos={todos.filter((todo) => todo.day === '1')} />
-      <DayTodo day={Days[2]} todos={todos.filter((todo) => todo.day === '2')} />
-      <DayTodo day={Days[3]} todos={todos.filter((todo) => todo.day === '3')} />
-      <DayTodo day={Days[4]} todos={todos.filter((todo) => todo.day === '4')} />
-      <DayTodo day={Days[5]} todos={todos.filter((todo) => todo.day === '5')} />
-      <DayTodo day={Days[6]} todos={todos.filter((todo) => todo.day === '6')} />
-      <DayTodo day={Days[7]} todos={todos.filter((todo) => todo.day === '7')} />
+    <div>
+      <Day
+        day={showDay}
+        todos={todos.filter((todo) => Days[parseInt(todo.day)] === showDay)}
+      />
+      {/* <Day day={Days[2]} todos={todos.filter((todo) => todo.day === '2')} />
+      <Day day={Days[3]} todos={todos.filter((todo) => todo.day === '3')} />
+      <Day day={Days[4]} todos={todos.filter((todo) => todo.day === '4')} />
+      <Day day={Days[5]} todos={todos.filter((todo) => todo.day === '5')} />
+      <Day day={Days[6]} todos={todos.filter((todo) => todo.day === '6')} />
+      <Day day={Days[7]} todos={todos.filter((todo) => todo.day === '7')} /> */}
     </div>
   );
 };

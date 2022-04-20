@@ -14,7 +14,6 @@ const DayButtons: React.FC<Props> = ({ showDay, setShowDay }) => {
     <div className="day-buttons">
       {$enum(Days).map((d) => {
         if (Days[d] === showDay) {
-          console.log(Days[d]);
           return (
             <DayButton
               selected={true}

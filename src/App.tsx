@@ -13,7 +13,7 @@ const App = () => {
 
   useEffect(() => {
     setDay(currentDay.toString());
-    console.log('Today is ' + Days[currentDay]);
+    // console.log('Today is ' + Days[currentDay]);
   }, [currentDay]);
 
   const [todo, setTodo] = useState<string>('');

@@ -1,26 +1,29 @@
-import React, { SetStateAction } from 'react';
+import React from 'react';
 import Day from './Day';
 import { Todo } from '../models/Todo';
 import { Days } from '../models/Days';
 
 interface Props {
   todos: Todo[];
+  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+  setInfoMessage: React.Dispatch<React.SetStateAction<string | null>>;
   showDay: string;
 }
 
-const Todos: React.FC<Props> = ({ todos, showDay }) => {
+const Todos: React.FC<Props> = ({
+  todos,
+  setTodos,
+  setInfoMessage,
+  showDay,
+}) => {
   return (
     <div>
       <Day
         day={showDay}
         todos={todos.filter((todo) => Days[parseInt(todo.day)] === showDay)}
+        setTodos={setTodos}
+        setInfoMessage={setInfoMessage}
       />
-      {/* <Day day={Days[2]} todos={todos.filter((todo) => todo.day === '2')} />
-      <Day day={Days[3]} todos={todos.filter((todo) => todo.day === '3')} />
-      <Day day={Days[4]} todos={todos.filter((todo) => todo.day === '4')} />
-      <Day day={Days[5]} todos={todos.filter((todo) => todo.day === '5')} />
-      <Day day={Days[6]} todos={todos.filter((todo) => todo.day === '6')} />
-      <Day day={Days[7]} todos={todos.filter((todo) => todo.day === '7')} /> */}
     </div>
   );
 };

@@ -20,7 +20,6 @@ const InputForm: React.FC<Props> = ({
       <form
         className="input-form"
         onSubmit={(e) => {
-          console.log(e);
           addTodo(e);
         }}
       >

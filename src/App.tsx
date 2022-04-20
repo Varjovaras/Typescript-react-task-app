@@ -6,20 +6,22 @@ import InputForm from './components/InputForm';
 import Todos from './components/Todos';
 import { Todo } from './models/Todo';
 import { Days } from './models/Days';
+import InfoNotification from './components/InfoNotification';
 
 const App = () => {
   const currentDay = new Date().getDay();
 
   useEffect(() => {
     setDay(currentDay.toString());
+    console.log('Today is ' + Days[currentDay]);
   }, [currentDay]);
 
   const [todo, setTodo] = useState<string>('');
   const [todos, setTodos] = useState<Todo[]>([]);
   const [day, setDay] = useState<string>(currentDay.toString());
   const [showDay, setShowDay] = useState<string>(Days[currentDay]);
-
-  console.log(todos);
+  const [infoMessage, setInfoMessage] = useState<string | null>(null);
+  // const [errorMessage, setErrorMessage] = useState(null);
 
   const addTodo = (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,6 +34,7 @@ const App = () => {
   return (
     <div className="App">
       <span className="header">Todo List</span>
+      <InfoNotification message={infoMessage} />
       <InputForm
         addTodo={addTodo}
         todo={todo}
@@ -41,7 +44,12 @@ const App = () => {
       />
 
       <DayButtons setShowDay={setShowDay} />
-      <Todos todos={todos} showDay={showDay} />
+      <Todos
+        todos={todos}
+        setTodos={setTodos}
+        showDay={showDay}
+        setInfoMessage={setInfoMessage}
+      />
     </div>
   );
 };

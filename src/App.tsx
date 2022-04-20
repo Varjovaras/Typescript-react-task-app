@@ -43,7 +43,8 @@ const App = () => {
         setDay={setDay}
       />
 
-      <DayButtons setShowDay={setShowDay} />
+      <DayButtons showDay={showDay} setShowDay={setShowDay} />
+      <h3 className="day-title">{Days[currentDay]}</h3>
       <Todos
         todos={todos}
         setTodos={setTodos}

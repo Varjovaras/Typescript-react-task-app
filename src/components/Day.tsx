@@ -1,5 +1,5 @@
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import { Todo } from '../models/Todo';
 
 interface Props {
@@ -27,8 +27,7 @@ const Day: React.FC<Props> = ({ todos, setTodos, setInfoMessage, day }) => {
   };
 
   return (
-    <div>
-      <h3 className="day-title">{day}</h3>
+    <div className="todos">
       {todos.map((todo) => (
         <li className="day" key={todo.id}>
           {todo.text}

@@ -21,7 +21,6 @@ const App = () => {
   const [day, setDay] = useState<string>(currentDay.toString());
   const [showDay, setShowDay] = useState<string>(Days[currentDay]);
   const [infoMessage, setInfoMessage] = useState<string | null>(null);
-  // const [errorMessage, setErrorMessage] = useState(null);
 
   const addTodo = (e: React.FormEvent) => {
     e.preventDefault();

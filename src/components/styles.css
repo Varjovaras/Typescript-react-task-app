@@ -58,7 +58,7 @@
 
 .day-buttons {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   width: 70%;
   margin-top: 10px;
 }
@@ -96,19 +96,10 @@
 
 .day {
   display: flex;
-  width: 29.5%;
-  border-radius: 5px;
-  padding: 20px;
-  margin-top: 15px;
-  background-image: url('https://img.freepik.com/free-photo/crumpled-yellow-paper-background-close-up_60487-2390.jpg?size=626&ext=jpg');
+  border: 1px solid black;
+  padding: 10px;
+  margin: 20px;
   transition: 0.2s;
-}
-
-.single_text_todo {
-  flex: 1;
-  padding: 5px;
-  border: none;
-  font-size: 20px;
 }
 
 .icon {

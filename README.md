@@ -2,19 +2,32 @@
 
 ## Task application
 
-### Made with typescript and react
+## Made with typescript and react
+
+### Project made with
 
 ```
 node v. 17.8
 npm v 8.5.5
 ```
 
+### Install dependencies and start the program on localhost:3000 with
+
 ```
 npm i
 npm start
+```
+
+### Run the applications tests with
+
+```
 npm run cypress:open
 ```
 
-npm run cypress:open ajaa projektin testit
+### App is in /src folder
 
-Applikaation yleinen css on App.css tiedostossa. Komponenttien käyttämä css styles.css tiedostossa.
+index.tsx loads the App component
+App is also found in the /src folder
+Rest of the components are in components folder
+All css is in the styles folder
+Interface for tasks and the enum used to count days of the week is in the models folder

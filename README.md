@@ -27,7 +27,13 @@ npm run cypress:open
 ### App is in /src folder
 
 index.tsx loads the App component
+
 App is also found in the /src folder
+
 Rest of the components are in components folder
+
 All css is in the styles folder
+
 Interface for tasks and the enum used to count days of the week is in the models folder
+
+### All the tests are in ./cypress/integration/ folder

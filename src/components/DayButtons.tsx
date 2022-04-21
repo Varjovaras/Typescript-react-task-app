@@ -5,10 +5,11 @@ import { $enum } from 'ts-enum-util';
 
 interface Props {
   showDay: string;
+  setDay: React.Dispatch<React.SetStateAction<string>>;
   setShowDay: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const DayButtons: React.FC<Props> = ({ showDay, setShowDay }) => {
+const DayButtons: React.FC<Props> = ({ showDay, setDay, setShowDay }) => {
   return (
     <div className="day-buttons">
       {$enum(Days).map((d) => {
@@ -17,6 +18,7 @@ const DayButtons: React.FC<Props> = ({ showDay, setShowDay }) => {
             <DayButton
               selected={true}
               key={d}
+              setDay={setDay}
               setShowDay={setShowDay}
               text={Days[d]}
             />
@@ -26,6 +28,7 @@ const DayButtons: React.FC<Props> = ({ showDay, setShowDay }) => {
             <DayButton
               selected={false}
               key={d}
+              setDay={setDay}
               setShowDay={setShowDay}
               text={Days[d]}
             />

@@ -37,7 +37,7 @@ const App = () => {
       <InfoNotification message={infoMessage} />
       <InputForm addTask={addTask} task={task} setTask={setTask} />
 
-      <DayButtons showDay={showDay} setShowDay={setShowDay} />
+      <DayButtons showDay={showDay} setDay={setDay} setShowDay={setShowDay} />
       <Todos
         tasks={tasks}
         setTasks={setTasks}

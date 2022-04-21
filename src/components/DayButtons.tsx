@@ -2,7 +2,6 @@ import React from 'react';
 import DayButton from './DayButton';
 import { Days } from '../models/Days';
 import { $enum } from 'ts-enum-util';
-import Day from './Day';
 
 interface Props {
   showDay: string;

@@ -63,7 +63,7 @@
   margin-top: 10px;
 }
 
-.todos {
+.tasks {
   display: flex;
   justify-content: space-evenly;
   width: 90%;

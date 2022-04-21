@@ -1,31 +1,30 @@
 import React from 'react';
 import Day from './Day';
-import { Todo } from '../models/Todo';
+import { Task } from '../models/Task';
 import { Days } from '../models/Days';
 
 interface Props {
-  todos: Todo[];
-  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+  tasks: Task[];
+  setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
   setInfoMessage: React.Dispatch<React.SetStateAction<string | null>>;
   showDay: string;
 }
 
-const Todos: React.FC<Props> = ({
-  todos,
-  setTodos,
+const Tasks: React.FC<Props> = ({
+  tasks,
+  setTasks,
   setInfoMessage,
   showDay,
 }) => {
   return (
     <div>
       <Day
-        day={showDay}
-        todos={todos.filter((todo) => Days[parseInt(todo.day)] === showDay)}
-        setTodos={setTodos}
+        tasks={tasks.filter((task) => Days[parseInt(task.day)] === showDay)}
+        setTasks={setTasks}
         setInfoMessage={setInfoMessage}
       />
     </div>
   );
 };
 
-export default Todos;
+export default Tasks;

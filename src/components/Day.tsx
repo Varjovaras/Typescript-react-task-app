@@ -1,18 +1,17 @@
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import React from 'react';
-import { Todo } from '../models/Todo';
+import { Task } from '../models/Task';
 
 interface Props {
-  todos: Todo[];
-  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+  tasks: Task[];
+  setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
   setInfoMessage: React.Dispatch<React.SetStateAction<string | null>>;
-  day: string;
 }
 
-const Day: React.FC<Props> = ({ todos, setTodos, setInfoMessage, day }) => {
+const Day: React.FC<Props> = ({ tasks, setTasks, setInfoMessage }) => {
   const handleDelete = (id: number, text: string) => {
     setInfoMessage(`${text} deleted`);
-    setTodos(todos.filter((todo) => todo.id !== id));
+    setTasks(tasks.filter((task) => task.id !== id));
     setTimeout(() => {
       setInfoMessage(null);
     }, 5000);
@@ -20,23 +19,23 @@ const Day: React.FC<Props> = ({ todos, setTodos, setInfoMessage, day }) => {
 
   const handleEdit = (id: number, text: string) => {
     setInfoMessage(`${text} edited`);
-    setTodos(todos.filter((todo) => todo.id !== id));
+    setTasks(tasks.filter((task) => task.id !== id));
     setTimeout(() => {
       setInfoMessage(null);
     }, 5000);
   };
 
   return (
-    <div className="todos">
-      {todos.map((todo) => (
-        <li className="day" key={todo.id}>
-          {todo.text}
-          <span className="icon" onClick={() => handleEdit(todo.id, todo.text)}>
+    <div className="tasks">
+      {tasks.map((task) => (
+        <li className="day" key={task.id}>
+          {task.text}
+          <span className="icon" onClick={() => handleEdit(task.id, task.text)}>
             <EditOutlined />
           </span>
           <span
             className="icon"
-            onClick={() => handleDelete(todo.id, todo.text)}
+            onClick={() => handleDelete(task.id, task.text)}
           >
             <DeleteOutlined />
           </span>

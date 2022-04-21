@@ -1,38 +1,29 @@
 import React from 'react';
-import SelectMenu from './SelectMenu';
 
 interface Props {
-  addTodo: (e: React.FormEvent) => void;
-  todo: string;
-  setTodo: React.Dispatch<React.SetStateAction<string>>;
-  setDay: React.Dispatch<React.SetStateAction<string>>;
-  day: string;
+  addTask: (e: React.FormEvent) => void;
+  task: string;
+  setTask: React.Dispatch<React.SetStateAction<string>>;
 }
-const InputForm: React.FC<Props> = ({
-  addTodo,
-  todo,
-  setTodo,
-  setDay,
-  day,
-}) => {
+const InputForm: React.FC<Props> = ({ addTask, task, setTask }) => {
   return (
     <>
       <form
         className="input-form"
         onSubmit={(e) => {
-          addTodo(e);
+          addTask(e);
         }}
       >
-        <SelectMenu day={day} setDay={setDay} />
         <input
           className="input"
+          id="input"
           type="input"
-          value={todo}
-          onChange={(e) => setTodo(e.target.value)}
-          placeholder="Enter todo"
+          value={task}
+          onChange={(e) => setTask(e.target.value)}
+          placeholder="Enter task"
         />
 
-        <button className="submit-button" type="submit">
+        <button className="submit-button" id="submit-button" type="submit">
           enter
         </button>
       </form>

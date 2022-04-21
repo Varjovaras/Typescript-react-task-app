@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
-import './components/styles.css';
+import './styles/App.css';
+import './styles/styles.css';
 import DayButtons from './components/DayButtons';
 import InputForm from './components/InputForm';
-import Todos from './components/Todos';
-import { Todo } from './models/Todo';
+import Todos from './components/Tasks';
+import { Task } from './models/Task';
 import { Days } from './models/Days';
 import InfoNotification from './components/InfoNotification';
 
@@ -13,40 +13,34 @@ const App = () => {
 
   useEffect(() => {
     setDay(currentDay.toString());
-    // console.log('Today is ' + Days[currentDay]);
+    setShowDay(Days[currentDay]);
   }, [currentDay]);
+  //useEffect hookki asettaa kyseisen päivän oikein, kun sivu ladataan uudelleen.
 
-  const [todo, setTodo] = useState<string>('');
-  const [todos, setTodos] = useState<Todo[]>([]);
-  const [day, setDay] = useState<string>(currentDay.toString());
-  const [showDay, setShowDay] = useState<string>(Days[currentDay]);
+  const [task, setTask] = useState<string>(''); //input-kentän arvo
+  const [tasks, setTasks] = useState<Task[]>([]); //kaikki taskit
+  const [day, setDay] = useState<string>(''); //uuden taskin päivä
+  const [showDay, setShowDay] = useState<string>(''); //mikä päivä korostetaan
   const [infoMessage, setInfoMessage] = useState<string | null>(null);
 
-  const addTodo = (e: React.FormEvent) => {
+  const addTask = (e: React.FormEvent) => {
     e.preventDefault();
-    if (todo) {
-      setTodos([...todos, { id: Date.now() + 1, text: todo, day: day }]);
-      setTodo('');
+    if (task) {
+      setTasks([...tasks, { id: Date.now() + 1, text: task, day: day }]);
+      setTask('');
     }
   };
 
   return (
     <div className="App">
-      <span className="header">Todo List</span>
+      <span className="header">TASK APP</span>
       <InfoNotification message={infoMessage} />
-      <InputForm
-        addTodo={addTodo}
-        todo={todo}
-        setTodo={setTodo}
-        day={day}
-        setDay={setDay}
-      />
+      <InputForm addTask={addTask} task={task} setTask={setTask} />
 
       <DayButtons showDay={showDay} setShowDay={setShowDay} />
-      <h3 className="day-title">{Days[currentDay]}</h3>
       <Todos
-        todos={todos}
-        setTodos={setTodos}
+        tasks={tasks}
+        setTasks={setTasks}
         showDay={showDay}
         setInfoMessage={setInfoMessage}
       />

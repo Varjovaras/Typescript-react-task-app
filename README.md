@@ -32,6 +32,6 @@ Rest of the components are in components folder
 
 All css is in the styles folder
 
-Interface for tasks and the enum used to count days of the week is in the models folder
+Interface for tasks and the enum used to count days of the week are in the models folder
 
 ### All the tests are in ./cypress/integration/

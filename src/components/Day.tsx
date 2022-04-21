@@ -36,6 +36,7 @@ const Day: React.FC<Props> = ({ tasks, setTasks, setInfoMessage }) => {
           <span
             className="icon"
             onClick={() => handleDelete(task.id, task.text)}
+            id="delete-button"
           >
             <DeleteOutlined />
           </span>

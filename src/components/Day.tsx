@@ -1,47 +1,41 @@
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import React from 'react';
+import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { Task } from '../models/Task';
 
 interface Props {
   tasks: Task[];
   setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
   setInfoMessage: React.Dispatch<React.SetStateAction<string | null>>;
+  handleDelete: (id: number, text: string) => void;
+  handleEdit: (id: number) => void;
 }
 
-const Day: React.FC<Props> = ({ tasks, setTasks, setInfoMessage }) => {
-  const handleDelete = (id: number, text: string) => {
-    setInfoMessage(`${text} deleted`);
-    setTasks(tasks.filter((task) => task.id !== id));
-    setTimeout(() => {
-      setInfoMessage(null);
-    }, 5000);
-  };
-
-  const handleEdit = (id: number, text: string) => {
-    setInfoMessage(`${text} edited`);
-    setTasks(tasks.filter((task) => task.id !== id));
-    setTimeout(() => {
-      setInfoMessage(null);
-    }, 5000);
-  };
-
+const Day: React.FC<Props> = ({
+  tasks,
+  setTasks,
+  setInfoMessage,
+  handleDelete,
+  handleEdit,
+}) => {
   return (
     <div className="tasks">
-      {tasks.map((task) => (
-        <li className="day" key={task.id}>
-          {task.text}
-          <span className="icon" onClick={() => handleEdit(task.id, task.text)}>
-            <EditOutlined />
-          </span>
-          <span
-            className="icon"
-            onClick={() => handleDelete(task.id, task.text)}
-            id="delete-button"
-          >
-            <DeleteOutlined />
-          </span>
-        </li>
-      ))}
+      {tasks.map((task) => {
+        return (
+          <li className="task" key={task.id}>
+            {task.text}
+            <span className="icon" onClick={() => handleEdit(task.id)}>
+              <EditOutlined />
+            </span>
+            <span
+              className="icon"
+              onClick={() => handleDelete(task.id, task.text)}
+              id="delete-button"
+            >
+              <DeleteOutlined />
+            </span>
+          </li>
+        );
+      })}
     </div>
   );
 };

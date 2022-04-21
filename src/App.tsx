@@ -3,14 +3,13 @@ import './styles/App.css';
 import './styles/styles.css';
 import DayButtons from './components/DayButtons';
 import InputForm from './components/InputForm';
-import Todos from './components/Tasks';
+import Tasks from './components/Tasks';
 import { Task } from './models/Task';
 import { Days } from './models/Days';
 import InfoNotification from './components/InfoNotification';
 
 const App = () => {
   const currentDay = new Date().getDay();
-
   useEffect(() => {
     setDay(currentDay.toString());
     setShowDay(Days[currentDay]);
@@ -31,6 +30,37 @@ const App = () => {
     }
   };
 
+  const handleEdit = (id: number) => {
+    const findTask = tasks.find((task) => task.id === id);
+    if (findTask) {
+      const edited = window.prompt(`Edit ${findTask.text}`);
+      if (edited !== null) {
+        setTasks([
+          ...tasks.filter((task) => task.id !== id),
+          { id: findTask.id, text: edited, day: findTask.day },
+        ]);
+        setInfoMessage(`${findTask.text} edited`);
+        setTimeout(() => {
+          setInfoMessage(null);
+        }, 5000);
+      }
+    }
+    // else {
+    //   setInfoMessage(`Couldn't be edited`);
+    //   setTimeout(() => {
+    //     setInfoMessage(null);
+    //   }, 5000);
+    // }
+  };
+
+  const handleDelete = (id: number, text: string) => {
+    setInfoMessage(`${text} deleted`);
+    setTasks(tasks.filter((task) => task.id !== id));
+    setTimeout(() => {
+      setInfoMessage(null);
+    }, 5000);
+  };
+
   return (
     <div className="App">
       <span className="header">TASK APP</span>
@@ -38,11 +68,13 @@ const App = () => {
       <InputForm addTask={addTask} task={task} setTask={setTask} />
 
       <DayButtons showDay={showDay} setDay={setDay} setShowDay={setShowDay} />
-      <Todos
+      <Tasks
         tasks={tasks}
         setTasks={setTasks}
         showDay={showDay}
         setInfoMessage={setInfoMessage}
+        handleDelete={handleDelete}
+        handleEdit={handleEdit}
       />
     </div>
   );

@@ -12,7 +12,7 @@ interface Props {
 const DayButtons: React.FC<Props> = ({ showDay, setDay, setShowDay }) => {
   return (
     <div className="day-buttons">
-      {$enum(Days).map((d) => {
+      {$enum(Days).map((d: number) => {
         if (Days[d] === showDay) {
           return (
             <DayButton

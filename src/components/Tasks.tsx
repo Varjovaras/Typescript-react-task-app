@@ -8,6 +8,8 @@ interface Props {
   setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
   setInfoMessage: React.Dispatch<React.SetStateAction<string | null>>;
   showDay: string;
+  handleDelete: (id: number, text: string) => void;
+  handleEdit: (id: number) => void;
 }
 
 const Tasks: React.FC<Props> = ({
@@ -15,6 +17,8 @@ const Tasks: React.FC<Props> = ({
   setTasks,
   setInfoMessage,
   showDay,
+  handleDelete,
+  handleEdit,
 }) => {
   return (
     <div>
@@ -22,6 +26,8 @@ const Tasks: React.FC<Props> = ({
         tasks={tasks.filter((task) => Days[parseInt(task.day)] === showDay)}
         setTasks={setTasks}
         setInfoMessage={setInfoMessage}
+        handleDelete={handleDelete}
+        handleEdit={handleEdit}
       />
     </div>
   );

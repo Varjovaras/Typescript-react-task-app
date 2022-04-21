@@ -94,18 +94,27 @@
   border: 1px solid white;
 }
 
-.day {
+.task {
   display: flex;
+  text-align: center;
   border: 1px solid black;
   padding: 10px;
   margin: 20px;
   transition: 0.2s;
 }
 
+.task:hover {
+  border: 1px solid black;
+}
+
 .icon {
   margin-left: 10px;
   font-size: 25px;
   cursor: crosshair;
+}
+
+.icon:hover {
+  border: 0.01px solid black;
 }
 
 @media (max-width: 700px) {

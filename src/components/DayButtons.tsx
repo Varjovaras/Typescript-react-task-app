@@ -1,5 +1,5 @@
 import React from 'react';
-import DayButton from './DayButton';
+import Daybutton from './Daybutton';
 import { Days } from '../models/Days';
 import { $enum } from 'ts-enum-util';
 
@@ -9,13 +9,13 @@ interface Props {
   setShowDay: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const DayButtons: React.FC<Props> = ({ showDay, setDay, setShowDay }) => {
+const Daybuttons: React.FC<Props> = ({ showDay, setDay, setShowDay }) => {
   return (
     <div className="day-buttons">
       {$enum(Days).map((d: number) => {
         if (Days[d] === showDay) {
           return (
-            <DayButton
+            <Daybutton
               selected={true}
               key={d}
               setDay={setDay}
@@ -25,7 +25,7 @@ const DayButtons: React.FC<Props> = ({ showDay, setDay, setShowDay }) => {
           );
         } else {
           return (
-            <DayButton
+            <Daybutton
               selected={false}
               key={d}
               setDay={setDay}
@@ -39,4 +39,4 @@ const DayButtons: React.FC<Props> = ({ showDay, setDay, setShowDay }) => {
   );
 };
 
-export default DayButtons;
+export default Daybuttons;

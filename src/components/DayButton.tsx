@@ -8,7 +8,7 @@ interface Props {
   selected: boolean;
 }
 
-const DayButton: React.FC<Props> = ({ text, selected, setDay, setShowDay }) => {
+const Daybutton: React.FC<Props> = ({ text, selected, setDay, setShowDay }) => {
   const handleDayChange = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setShowDay(text);
@@ -41,4 +41,4 @@ const DayButton: React.FC<Props> = ({ text, selected, setDay, setShowDay }) => {
   );
 };
 
-export default DayButton;
+export default Daybutton;

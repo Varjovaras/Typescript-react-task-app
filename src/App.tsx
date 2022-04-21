@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './styles/App.css';
 import './styles/styles.css';
-import DayButtons from './components/DayButtons';
+import Daybuttons from './components/Daybuttons';
 import InputForm from './components/InputForm';
 import Tasks from './components/Tasks';
 import { Task } from './models/Task';
@@ -67,7 +67,7 @@ const App = () => {
       <InfoNotification message={infoMessage} />
       <InputForm addTask={addTask} task={task} setTask={setTask} />
 
-      <DayButtons showDay={showDay} setDay={setDay} setShowDay={setShowDay} />
+      <Daybuttons showDay={showDay} setDay={setDay} setShowDay={setShowDay} />
       <Tasks
         tasks={tasks}
         showDay={showDay}

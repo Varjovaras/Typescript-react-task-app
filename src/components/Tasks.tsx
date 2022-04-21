@@ -5,8 +5,6 @@ import { Days } from '../models/Days';
 
 interface Props {
   tasks: Task[];
-  setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
-  setInfoMessage: React.Dispatch<React.SetStateAction<string | null>>;
   showDay: string;
   handleDelete: (id: number, text: string) => void;
   handleEdit: (id: number) => void;
@@ -14,8 +12,6 @@ interface Props {
 
 const Tasks: React.FC<Props> = ({
   tasks,
-  setTasks,
-  setInfoMessage,
   showDay,
   handleDelete,
   handleEdit,
@@ -24,8 +20,6 @@ const Tasks: React.FC<Props> = ({
     <div>
       <Day
         tasks={tasks.filter((task) => Days[parseInt(task.day)] === showDay)}
-        setTasks={setTasks}
-        setInfoMessage={setInfoMessage}
         handleDelete={handleDelete}
         handleEdit={handleEdit}
       />

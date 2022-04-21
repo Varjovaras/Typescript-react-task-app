@@ -4,19 +4,12 @@ import { Task } from '../models/Task';
 
 interface Props {
   tasks: Task[];
-  setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
-  setInfoMessage: React.Dispatch<React.SetStateAction<string | null>>;
+
   handleDelete: (id: number, text: string) => void;
   handleEdit: (id: number) => void;
 }
 
-const Day: React.FC<Props> = ({
-  tasks,
-  setTasks,
-  setInfoMessage,
-  handleDelete,
-  handleEdit,
-}) => {
+const Day: React.FC<Props> = ({ tasks, handleDelete, handleEdit }) => {
   return (
     <div className="tasks">
       {tasks.map((task) => {

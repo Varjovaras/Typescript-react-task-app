@@ -70,9 +70,7 @@ const App = () => {
       <DayButtons showDay={showDay} setDay={setDay} setShowDay={setShowDay} />
       <Tasks
         tasks={tasks}
-        setTasks={setTasks}
         showDay={showDay}
-        setInfoMessage={setInfoMessage}
         handleDelete={handleDelete}
         handleEdit={handleEdit}
       />
